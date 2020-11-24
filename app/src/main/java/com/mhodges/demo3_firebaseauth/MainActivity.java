@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.android.material.navigation.NavigationView;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         if (photoURL != null)
         {
             ImageView imageView = (ImageView) findViewById(R.id.ivProfilePicture);
-            Glide.with(this).load(photoURL.toString()).into(imageView);
+            Glide.with(this).load(photoURL.toString()).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(imageView);
         }
     }
 
